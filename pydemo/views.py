@@ -6,9 +6,6 @@ from django.http import JsonResponse
 from operator import itemgetter
 from time import sleep
 from django.middleware.csrf import get_token
-#import opentracing
-
-#tracer = settings.OPENTRACING_TRACER
 
 def subdirs(path):
     for d in filter(os.path.isdir, os.listdir(path)):

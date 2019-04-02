@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-#import lightstep
-#import django_opentracing
 
 #OPENTRACING_TRACER = DjangoTracer(initialize_tracer())
 
@@ -43,12 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'django_opentracing',
     'pydemo',
 ]
 
 MIDDLEWARE_CLASSES = [
-    'django_opentracing.OpenTracingMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -138,16 +134,5 @@ PROJECT_NAME = os.path.basename(PROJECT_ROOT)
 #print (os.path.join(BASE_DIR, 'pydemo/static'))
 #print (PROJECT_ROOT, PROJECT_NAME)
 
-# OpenTracing settings
-# default tracer is opentracing.Tracer(), which does nothing
-#OPENTRACING_TRACER = django_opentracing.DjangoTracer(lightstep.tracer.init_tracer(group_name="pydemo", access_token="{your_lightstep_token}"))
-#OPENTRACING_TRACER = django_opentracing.DjangoTracer(lightstep.Tracer(component_name='pydemo',access_token='{your_access_token}'))
-
-
-# default is False
-#OPENTRACING_TRACE_ALL = True 
-
-# default is []
-#OPENTRACING_TRACED_ATTRIBUTES = ['META']
 
 
