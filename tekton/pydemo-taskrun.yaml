@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1alpha1
+kind: TaskRun
+metadata:
+  name: pydemo-taskrun
+spec:
+  # Use service account with git and image repo credentials
+  serviceAccount: pipeline
+  taskRef:
+    name: pydemo-pipeline
+  inputs:
+    resources:
+    - name: source
+      resourceSpec:
+        type: git
+        params:
+        - name: url
+          value: https://github.com/nnachefski/pydemo.git
+  outputs:
+    resources:
+    - name: image
+      resourceSpec:
+        type: image
+        params:
+        - name: url
+          value: image-registry.openshift-image-registry.svc:5000/tekton-test/pydemo
+
