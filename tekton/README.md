@@ -30,7 +30,7 @@ watch oc get taskrun
 ```
 oc logs pydemo-taskrun-pod-90e3a7 -c step-build
 ```
-##### # after it completes successfully, create and instance of the pydemo app
+##### # after it completes successfully, create an instance of the pydemo app
 ```
 oc new-app -i pydemo
 ```
@@ -39,7 +39,7 @@ oc new-app -i pydemo
 oc expose svc/pydemo
 ```
 
-#### and that's it!  You just used native Openshift Pipelines to build and deploy 'pydemo'.  Now, take it a step further and build your own app.  Check out using RH CodeReady as your IDE (on Openshift).  It's an kubernetes-native IDE (Eclipse-che) that gives you all the benefits of a VDI-style solution without the massive headaches that VDI brings to the party.  You could say it's "VDI on kubernetes"
+##### # and that's it!  You just used native Openshift Pipelines to build and deploy 'pydemo'.  Now, take it a step further and build your own app.  Check out using RH CodeReady as your IDE (on Openshift).  It's an kubernetes-native IDE (Eclipse-che) that gives you all the benefits of a VDI-style solution without the massive headaches that VDI brings to the party.  You could say it's "VDI on kubernetes"
 
 
 
