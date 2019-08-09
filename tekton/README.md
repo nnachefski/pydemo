@@ -34,7 +34,7 @@ oc logs pydemo-taskrun-pod-90e3a7 -c step-build
 ```
 oc new-app -i pydemo
 ```
-##### # and create route
+##### # and create the route
 ```
 oc expose svc/pydemo
 ```
