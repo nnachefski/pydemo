@@ -11,10 +11,9 @@ oc create serviceaccount pipeline
 oc adm policy add-scc-to-user privileged -z pipeline
 oc adm policy add-role-to-user edit -z pipeline 
 ```
-
 ##### # now, add the Task object to the project (located in this directory)
 ```
-oc create -f https://raw.githubusercontent.com/nnachefski/pydemo/master/tekton/pydemo-pipeline.yaml
+oc create -f https://raw.githubusercontent.com/nnachefski/pydemo/master/tekton/pydemo-task.yaml
 ```
 
 ##### # now add the task run
