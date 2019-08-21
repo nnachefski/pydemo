@@ -1,7 +1,7 @@
 #### # this described how to build my pydemo test application (python3.6+django+jquery-ui) to build and run on Openshift 4.x using the native Tekton Pipelines.
 ##### # Tekton is a kubernetest-native building framework (like Jenkins) designed specifically for containers.
 
-##### # first, install the "Openshift Pipelines" operator from the OCP 4.x OperatorHub tab
+##### # first, install the "Openshift Pipelines" operator from the OCP 4.x OperatorHub tab.  This demo uses the default PipelineResources installed by the operator.
 
 ##### # create a project to run the application and setup the appropriate serviceaccount and SCC policies
 ```
