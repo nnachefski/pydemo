@@ -38,7 +38,7 @@ oc new-app -i pydemo
 oc expose svc/pydemo
 ```
 
-##### # and that's it!  You just used native Openshift Pipelines (tekton) to build and deploy 'pydemo'.
+##### # and that's it!  You just used Openshift Pipelines (tekton) to build and deploy 'pydemo'.
 
 
 
