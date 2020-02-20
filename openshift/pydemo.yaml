@@ -7,27 +7,24 @@ items:
       alpha.image.policy.openshift.io/resolve-names: '*'
       app.openshift.io/vcs-ref: master
       app.openshift.io/vcs-uri: http://git.home.nicknach.net/nick/pydemo.git
-      deployment.kubernetes.io/revision: "2"
-      image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"pydemo-git:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pydemo-git\")].image"}]'
+      image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"pydemo:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pydemo\")].image"}]'
     creationTimestamp: "2020-02-20T04:17:13Z"
-    generation: 2
     labels:
-      app: pydemo-git
-      app.kubernetes.io/component: pydemo-git
-      app.kubernetes.io/instance: pydemo-git
+      app: pydemo
+      app.kubernetes.io/component: pydemo
       app.kubernetes.io/name: s2i-custom-python36
-      app.kubernetes.io/part-of: pydemo-git-app
+      app.kubernetes.io/part-of: pydemo
       app.openshift.io/runtime: s2i-custom-python36
       app.openshift.io/runtime-version: latest
-    name: pydemo-git
-    namespace: foo
+    name: pydemo
+    namespace: gitops
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
     revisionHistoryLimit: 10
     selector:
       matchLabels:
-        app: pydemo-git
+        app: pydemo
     strategy:
       rollingUpdate:
         maxSurge: 25%
@@ -37,8 +34,8 @@ items:
       metadata:
         creationTimestamp: null
         labels:
-          app: pydemo-git
-          deploymentconfig: pydemo-git
+          app: pydemo
+          deploymentconfig: pydemo
       spec:
         containers:
         - image: image-registry.openshift-image-registry.svc:5000/openshift/pydemo
@@ -55,12 +52,6 @@ items:
         schedulerName: default-scheduler
         securityContext: {}
         terminationGracePeriodSeconds: 30
-  status:
-    availableReplicas: 1
-    observedGeneration: 2
-    readyReplicas: 1
-    replicas: 1
-    updatedReplicas: 1
 - apiVersion: v1
   kind: Service
   metadata:
@@ -68,15 +59,14 @@ items:
       app.openshift.io/vcs-ref: master
       app.openshift.io/vcs-uri: http://git.home.nicknach.net/nick/pydemo.git
     labels:
-      app: pydemo-git
-      app.kubernetes.io/component: pydemo-git
-      app.kubernetes.io/instance: pydemo-git
+      app: pydemo
+      app.kubernetes.io/component: pydemo
       app.kubernetes.io/name: s2i-custom-python36
-      app.kubernetes.io/part-of: pydemo-git-app
+      app.kubernetes.io/part-of: pydemo
       app.openshift.io/runtime: s2i-custom-python36
       app.openshift.io/runtime-version: latest
-    name: pydemo-git
-    namespace: foo
+    name: pydemo
+    namespace: gitops
   spec:
     ports:
     - name: 8080-tcp
@@ -84,8 +74,8 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      app: pydemo-git
-      deploymentconfig: pydemo-git
+      app: pydemo
+      deploymentconfig: pydemo
     sessionAffinity: None
     type: ClusterIP
   status:
@@ -96,22 +86,21 @@ items:
     annotations:
       openshift.io/host.generated: "true"
     labels:
-      app: pydemo-git
-      app.kubernetes.io/component: pydemo-git
-      app.kubernetes.io/instance: pydemo-git
+      app: pydemo
+      app.kubernetes.io/component: pydemo
       app.kubernetes.io/name: s2i-custom-python36
-      app.kubernetes.io/part-of: pydemo-git-app
+      app.kubernetes.io/part-of: pydemo
       app.openshift.io/runtime: s2i-custom-python36
       app.openshift.io/runtime-version: latest
-    name: pydemo-git
-    namespace: foo
+    name: pydemo
+    namespace: gitops
   spec:
-    host: pydemo-git-foo.apps.ocp.nicknach.net
+    host: pydemo-gitops.apps.ocp.nicknach.net
     port:
       targetPort: 8080-tcp
     to:
       kind: Service
-      name: pydemo-git
+      name: pydemo
       weight: 100
     wildcardPolicy: None
   status:
