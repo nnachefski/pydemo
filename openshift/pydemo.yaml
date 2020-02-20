@@ -117,10 +117,8 @@ items:
   status:
     ingress:
     - conditions:
-      host: pydemo-git-foo.apps.ocp.nicknach.net
-      routerCanonicalHostname: apps.ocp.nicknach.net
-      routerName: default
-      wildcardPolicy: None
+      - status: 'True'
+        type: Admitted    
 kind: List
 metadata:
   resourceVersion: ""
