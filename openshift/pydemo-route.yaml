@@ -1,0 +1,28 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: pydemo
+    app.kubernetes.io/component: pydemo
+    app.kubernetes.io/name: s2i-custom-python36
+    app.kubernetes.io/part-of: pydemo
+    app.openshift.io/runtime: s2i-custom-python36
+    app.openshift.io/runtime-version: latest
+  name: pydemo
+  namespace: gitops
+spec:
+  host: pydemo-gitops.apps.ocp.nicknach.net
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: pydemo
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - status: 'True'
+      type: Admitted

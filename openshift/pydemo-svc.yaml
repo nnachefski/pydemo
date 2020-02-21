@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: master
+    app.openshift.io/vcs-uri: http://git.home.nicknach.net/nick/pydemo.git
+  labels:
+    app: pydemo
+    app.kubernetes.io/component: pydemo
+    app.kubernetes.io/name: s2i-custom-python36
+    app.kubernetes.io/part-of: pydemo
+    app.openshift.io/runtime: s2i-custom-python36
+    app.openshift.io/runtime-version: latest
+  name: pydemo
+  namespace: gitops
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: pydemo
+    deploymentconfig: pydemo
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
