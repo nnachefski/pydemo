@@ -15,7 +15,6 @@ metadata:
     app.openshift.io/runtime: s2i-custom-python36
     app.openshift.io/runtime-version: latest
   name: pydemo
-  namespace: gitops
 spec:
   progressDeadlineSeconds: 600
   replicas: 1

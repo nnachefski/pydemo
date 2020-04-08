@@ -12,7 +12,6 @@ metadata:
     app.openshift.io/runtime: s2i-custom-python36
     app.openshift.io/runtime-version: latest
   name: pydemo
-  namespace: gitops
 spec:
   ports:
   - name: 8080-tcp
