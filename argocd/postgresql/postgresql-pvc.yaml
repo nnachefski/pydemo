@@ -8,7 +8,6 @@ items:
     finalizers:
     - kubernetes.io/pvc-protection
     name: postgresql
-    namespace: gitops
   spec:
     accessModes:
     - ReadWriteOnce
