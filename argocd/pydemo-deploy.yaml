@@ -4,7 +4,7 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/vcs-ref: master
-    app.openshift.io/vcs-uri: http://git.home.nicknach.net/nick/pydemo.git
+    app.openshift.io/vcs-uri: https://github.com/nnachefski/pydemo.git
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"pydemo:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pydemo\")].image"}]'
   creationTimestamp: "2020-02-20T04:17:13Z"
   labels:
